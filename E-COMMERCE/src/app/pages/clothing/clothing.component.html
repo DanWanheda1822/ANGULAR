@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<!--RENDERING MOBILE VIEW-->
+<div class="">
+    @if(isMobile){
+        <app-filters (brandSelected)="filterBrand($event, pageNumber)" (priceSelected)="filterPrice($event, pageNumber)" ></app-filters>
+        @for(product of products; track $index){
+            <app-card [product]="product"></app-card>
+        }
+    } @else {
+        <div class="flex flex-col-2">
+            <app-filters (brandSelected)="filterBrand($event, pageNumber)" 
+                        (priceSelected)="filterPrice($event, pageNumber)" 
+                        (categorySelected)="atun($event, pageNumber)"></app-filters>
+            <div class="flex gap-4 mt-2 mx-auto flex-wrap ms-5 mb-5">  @for(product of products; track $index){
+                <app-card [product]="product"></app-card>
+                @if(($index + 1) % 4 === 0 && $index + 1 < numbers.length){  <div class="w-full"></div>  }
+            }
+        </div>
+        </div>
+    }
+    <!--PAGINATION BUTTON-->
+    <div class="space-x-1 mx-auto justify-center w-[275px] my-2">
+        <button class="rounded-full border border-[#3A3A3A] py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg  hover:text-[#1F1F1F] hover:bg-[#EAEAEA] hover:border-[#EAEAEA] focus:text-[#1F1F1F] focus:bg-[#EAEAEA] focus:border-[#EAEAEA] active:border-[#EAEAEA] active:text-[#1F1F1F] active:bg-[#EAEAEA] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" (click)="getAllProducts(pageNumber-1)">
+            Prev
+        </button>
+        <button class="min-w-9 rounded-full bg-[#EAEAEA] py-2 px-3.5 border border-transparent text-center text-sm  transition-all shadow-md hover:shadow-lg focus:bg-[#EAEAEA] focus:shadow-none active:bg-[#EAEAEA] hover:bg-[#EAEAEA] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" (click)="getAllProducts(1);">
+            1
+        </button>
+        <button class="min-w-9 rounded-full border border-[#3A3A3A] py-2 px-3.5 text-center text-sm transition-all shadow-sm hover:shadow-lg  hover:text-[#EAEAEA] hover:bg-[#343434] hover:border-[#343434] focus:text-[#EAEAEA] focus:bg-[#343434] focus:border-[#343434] active:border-[#343434] active:text-[#EAEAEA] active:bg-[#343434] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" (click)="getAllProducts(2)">
+            2
+        </button>
+        <button class="min-w-9 rounded-full border border-[#3A3A3A] py-2 px-3.5 text-center text-sm transition-all shadow-sm hover:shadow-lg  hover:text-[#EAEAEA] hover:bg-[#343434] hover:border-[#343434] focus:text-[#EAEAEA] focus:bg-[#343434] focus:border-[#343434] active:border-[#343434] active:text-[#EAEAEA] active:bg-[#343434] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" (click)="getAllProducts(3)">
+            3
+        </button>
+        <button class="min-w-9 rounded-full border border-[#3A3A3A] py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg  hover:text-[#1F1F1F] hover:bg-[#EAEAEA] hover:border-[#EAEAEA] focus:text-[#1F1F1F] focus:bg-[#EAEAEA] focus:border-[#EAEAEA] active:border-[#EAEAEA] active:text-[#1F1F1F] active:bg-[#EAEAEA] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" (click)="getAllProducts(pageNumber+1)">
+            Next
+        </button>
+    </div>
+    
+    
+    
+</div>

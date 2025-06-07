@@ -1,0 +1,148 @@
+<app-navbar></app-navbar>
+<!--MOBILE RENDERING VIEW-->
+
+
+@if(isMobileView){
+  
+  <a routerLink="/shop" class="flex items-center gap-2 text-white bg-gray-500 py-2 px-4 rounded-full hover:bg-gray-600 transition w-fit mt-2 ms-2">
+    <i class="fa-solid fa-shirt"></i>
+    <p class="text-sm">Back to shop!</p>
+  </a>
+  
+<div class="w-screen text-center mt-3">
+  <p class="text-2xl"> {{productName}} </p>
+</div>
+<div class="w-screen h-[320px] mt-2">
+  <img
+    src="https://www.prada.com/content/dam/pradabkg_products/U/UJN/UJN922/16S0F0AU1/UJN922_16S0_F0AU1_S_WMO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg"
+    alt="" class="object-cover w-full h-full">
+</div>
+<!--PRODUCT SETTINGS-->
+<p class="text-3xl text-gray-800 py-2 ms-2">${{ productPrice }} </p>
+<div class="mb-4">
+  <select name="sizeSelect" class="w-[200px] h-[25px] border-[0.5px] mt-2 ms-2 border-gray-300" (change)="sizeSelected = $any($event.target).value">
+    <option value="" disable selected>select a size</option>
+    @for(size of sizes; track $index){
+    <option value="{{size}}Prod"> {{size}} </option>
+    }
+  </select>
+</div>
+<div class="w-[125px] ms-2 mt-1">
+  <div class="flex w-[120px] border border-gray-300 rounded-lg overflow-hidden">
+    <button
+      class="w-[40px] h-[40px] text-xl flex items-center justify-center text-gray-700 hover:bg-gray-100 transition"
+      (click)="i = i - 1; amountProduct()">-</button>
+    <p class="w-[40px] h-[40px] flex items-center justify-center text-2xl text-gray-800">{{ i }}</p>
+    <button
+      class="w-[40px] h-[40px] text-xl flex items-center justify-center text-gray-700 hover:bg-gray-100 transition"
+      (click)="i = i + 1">+</button>
+  </div>
+</div>
+
+<div
+  class="w-[120px] h-[50px] bg-gray-500 text-center text-white place-content-center mt-2 rounded-full ms-2 hover:bg-gray-600 transition duration-500">
+  <button class="text-[18px]" (click)="sizeValidation()">Add to Car</button>
+</div>
+
+
+<div class="flex justify-end items-center w-full px-4 me-5">
+  <app-shop-cart [ngClass]="{
+            'w-6 h-6': isMobileView, 
+            'w-8 h-8': !isMobileView, 
+            'text-gray-800 hover:text-black transition': true
+          }">
+  </app-shop-cart>
+
+  @if(!isSizeSelected){
+    <div
+      class="mt-6 ml-auto me-5 h-[30px] w-[230px] bg-gray-300  mx-auto text-center font-light place-content-center rounded-full transition-opacity ease-out duration-700 opacity-0"
+      [ngClass]="{ 'opacity-100': showSizeDialog, 'opacity-0': !showSizeDialog }">
+      You need to select a size first!
+    </div>
+    } @else{
+    <div
+      class="mt-6 ml-auto me-5 h-[30px] w-[230px] bg-gray-300  mx-auto text-center font-light place-content-center rounded-full transition-opacity ease-out duration-700 opacity-0"
+      [ngClass]="{ 'opacity-100': showDialogMessage, 'opacity-0': !showDialogMessage }">
+      Product added to car shop!
+    </div>
+    }
+
+</div>
+
+} @else {
+<!--DESKTOP RENDERING VIEW-->
+
+  <!--BACK TO SHOP BUTTON-->
+
+<a routerLink="/shop" class="flex items-center gap-2 text-white bg-gray-500 py-2 px-4 rounded-full hover:bg-gray-600 transition w-fit mt-1 ms-[50px]">
+  <i class="fa-solid fa-shirt"></i>
+  <p class="text-sm">Back to shop!</p>
+</a>
+
+<div class="flex">
+  
+  <div class="w-[450px] h-[450px] mt-4 ms-[50px]">
+    <img
+      src="https://www.prada.com/content/dam/pradabkg_products/U/UJN/UJN922/16S0F0AU1/UJN922_16S0_F0AU1_S_WMO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg"
+      alt="" class="object-cover w-full h-full rounded">
+  </div>
+  <div class="w-[300px] mt-6 ms-5 font-light">
+    <p class="text-5xl pt-6 "> {{this.product.product}} </p>
+    <br>
+    <p class="text-xl">Lorem ipsum dolor sit amet. description</p>
+    <p class="text-2xl mt-2">$ {{this.product.price}}</p>
+
+    <!--SIZE SELECTOR-->
+
+    <div class="w-[300px] h-[100px] flex justify-start items-center gap-3">
+      @for(size of sizes; track $index) {
+        <button
+        class="w-[40px] h-[40px] border border-gray-500 rounded-full text-sm text-gray-800 transition-colors duration-300"
+        [ngClass]="{
+          'bg-gray-900 text-white': sizeSelected === size,
+          'hover:bg-gray-900 hover:text-white': sizeSelected !== size
+        }"
+        (click)="sizeSelected = size">
+        {{ size }}
+      </button>     
+      }
+    </div>
+
+    <!--PRODUCT AMOUNT-->
+
+    <div class="w-[125px] ms-2 mt-1">
+      <div class="flex w-[120px] border border-gray-300 rounded-lg overflow-hidden">
+        <button
+          class="w-[40px] h-[40px] text-xl flex items-center justify-center text-gray-700 hover:bg-gray-100 transition"
+          (click)="i = i - 1; amountProduct()">-</button>
+        <p class="w-[40px] h-[40px] flex items-center justify-center text-2xl text-gray-800">{{ i }}</p>
+        <button
+          class="w-[40px] h-[40px] text-xl flex items-center justify-center text-gray-700 hover:bg-gray-100 transition"
+          (click)="(i = i + 1)">+</button>
+      </div>
+    </div>
+
+    <div
+      class="w-[130px] h-[50px] mt-3 bg-gray-500 text-center text-white place-content-center rounded-full ms-2 hover:bg-gray-600 transition duration-500">
+      <button class="text-[18px]" (click)="sizeValidation()">Add to Car</button>
+    </div>
+
+  </div>
+
+  @if(!isSizeSelected){
+  <div
+    class="mt-6 ml-auto me-5 h-[30px] w-[230px] bg-gray-300  mx-auto text-center font-light place-content-center rounded-full transition-opacity ease-out duration-700 opacity-0"
+    [ngClass]="{ 'opacity-100': showSizeDialog, 'opacity-0': !showSizeDialog }">
+    You need to select a size first!
+  </div>
+  } @else{
+  <div
+    class="mt-6 ml-auto me-5 h-[30px] w-[230px] bg-gray-300  mx-auto text-center font-light place-content-center rounded-full transition-opacity ease-out duration-700 opacity-0"
+    [ngClass]="{ 'opacity-100': showDialogMessage, 'opacity-0': !showDialogMessage }">
+    Product added to car shop!
+  </div>
+  }
+
+  <app-shop-cart class="mt-2 me-3"></app-shop-cart>
+</div>
+}

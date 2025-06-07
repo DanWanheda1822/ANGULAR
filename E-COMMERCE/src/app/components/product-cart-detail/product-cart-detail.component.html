@@ -1,0 +1,20 @@
+<div class="w-full max-w-[500px] h-[100px] flex items-center gap-4 p-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition duration-300 mb-2">
+
+    <!-- Imagen del producto -->
+    <div class="w-[80px] h-[80px] rounded-lg overflow-hidden">
+        <img src="https://www.prada.com/content/dam/pradabkg_products/U/UJN/UJN922/16S0F0AU1/UJN922_16S0_F0AU1_S_WMO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg"
+            alt="">
+    </div>
+
+    <!-- Detalles del producto -->
+    <div class="flex-1 text-sm text-gray-800">
+        <p class="font-medium">{{ productData.product }}</p>
+        <p class="text-gray-600">Total: ${{ productData.price }}</p>
+        <p class="text-gray-600">Quantity: {{ productData.stock }}</p>
+    </div>
+
+    <!-- Botón eliminar -->
+    <div class="text-red-500 hover:bg-red-200 rounded-full p-2 cursor-pointer transition duration-300">
+        <i class="fa-solid fa-trash text-xl" (click)="deleteProduct()"></i>
+    </div>
+</div>

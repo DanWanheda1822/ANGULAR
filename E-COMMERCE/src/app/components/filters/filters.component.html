@@ -1,0 +1,144 @@
+@if(isMdOrLarge){
+<div class="w-[180px] bg-white h-screen shadow-md  p-4">
+    <div class="mb-4 border-b pb-2">
+        <h2 class="text-lg font-bold text-gray-800 text-center">Filters</h2>
+    </div>
+
+    <!-- PRICE RANGE FILTER -->
+    <div class="mb-4">
+        <h3 class="font-semibold text-gray-700 mb-2">Price Range</h3>
+        <div class="space-y-1 text-sm text-gray-600">
+            <select name="priceFilter" id="priceFilter" class="w-[145px]" (change)="sendPrice($event)">
+                <option class="hover:bg-amber-600" disabled selected>Select a price</option>
+                <option value="low" >Low ($1 - $100)</option>
+                <option value="mid" >Medium ($100 - $500)</option>
+                <option value="high">High ($500 - $1000)</option>
+                <option value="ultraHigh" >Premium ($1000+)</option>
+            </select>
+        </div>
+    </div>
+
+    <!--TYPE OF PRODUCT FILTER-->
+    <div class="mb-4">
+        <h3 class="font-semi-bold text-gray-700 mb-2">Product Category</h3>
+        <div class="space-y-1 text-sm text-gray-500">
+            <select name="productType" id="typeProductFilter" class="w-[145px]" (change)="sendCategory($event)">
+                <option value="" class="hover:bg-amber-600" disabled selected>Myscelanea</option>
+                <option value="clothing" class="hover:bg-amber-600">Clothing</option>
+                <option value="footwear" class="hover:bg-amber-600">Footwear</option>
+                <option value="perfume" class="hover:bg-amber-600">Perfume</option>
+                <option value="accesories" class="hover:bg-amber-600">Accesories</option>
+                <option value="homeDecor" class="hover:bg-amber-600">Home decor</option>
+                <option value="bag" class="hover:bg-amber-600">Bag</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- BRAND FILTER -->
+    <div class="mb-4">
+        <h3 class="font-semibold text-gray-700 mb-2">Brands</h3>
+        <div class="space-y-1 text-sm text-gray-600">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Gucci')">
+                <input type="radio" class="accent-black" name="brands">
+                Gucci
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Prada')">
+                <input type="radio" class="accent-black" name="brands">
+                Prada
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Supreme')">
+                <input type="radio" class="accent-black" name="brands">
+                Supreme
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Louis Vuitton')">
+                <input type="radio" class="accent-black" name="brands">
+                Louis Vuitton
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Chanel')">
+                <input type="radio" class="accent-black" name="brands">
+                Chanel
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all" (click)="sendBrand('Dior')">
+                <input type="radio" class="accent-black" name="brands">
+                Dior
+            </label>
+        </div>
+    </div>
+
+    <!-- GENDER FILTER -->
+    <div>
+        <h3 class="font-semibold text-gray-700 mb-2">Gender</h3>
+        <div class="space-y-1 text-sm text-gray-600">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all">
+                <input type="checkbox" class="accent-gray-700">
+                Male
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-gray-700 transition-all">
+                <input type="checkbox" class="accent-gray-700">
+                Female
+            </label>
+        </div>
+    </div>
+</div>
+
+
+
+
+}
+<!--IF MOBILE VIEW-->
+@else{
+<!-- Mobile Filters Navbar -->
+<div class="w-full h-[40px] shadow-md flex justify-center items-center gap-4 px-6 bg-white">
+    <button class="px-3 py-1 text-sm font-semibold text-gray-700 hover:text-black transition"
+        (click)="mobileRenderFilter('price'); filterType = 'price'">
+        Price
+    </button>
+    <button class="px-2 py-1 text-sm font-semibold text-gray-700 hover:text-black transition"
+        (click)="mobileRenderFilter('brands'); filterType='brands'" >
+        Brands
+    </button>
+    <button class="px-2 py-1 text-sm font-semibold text-gray-700 hover:text-black transition"
+        (click)="mobileRenderFilter('gender'); filterType = 'gender'">
+        Gender
+    </button>
+    <button class="px-2 py-1 text-sm font-semibold text-gray-700 hover:text-black transition"
+        (click)="mobileRenderFilter('category'); filterType='category'">
+        Category
+    </button>
+    <button class="px-2 py-1 text-sm font-semibold text-gray-700 hover:text-black transition"
+        (click)="mobileRenderFilter('type'); filterType='type'">
+        Type
+    </button>
+</div>
+
+<!-- Mobile Filters Dropdown -->
+@if(filtersMobile){
+<div class="w-full bg-gray-100 shadow-md transition-opacity duration-300 ease-in-out p-3 rounded-md">
+    <ul class="text-sm text-gray-700">
+        @if(filterType === 'price'){
+        <li class="py-2 hover:text-black transition"><a href="#">$1 - $100</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">$100 - $500</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">$500 - $1000</a></li>
+        } @else if(filterType === 'gender'){
+        <li class="py-2 hover:text-black transition"><a href="#">Female</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Male</a></li>
+        } @else if(filterType === 'brands'){
+        <li class="py-2 hover:text-black transition"><a href="#">Gucci</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Prada</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Supreme</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Suit Supply</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Louis Vuitton</a></li>
+        } @else if(filterType === 'category'){
+        <li class="py-2 hover:text-black transition"><a href="#">Home</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Jewelry</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Clothing</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Sneakers</a></li>
+        } @else if(filterType == 'type'){
+        <li class="py-2 hover:text-black transition"><a href="#">Clothing</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Sneakers</a></li>
+        <li class="py-2 hover:text-black transition"><a href="#">Parfums</a></li>
+        }
+    </ul>
+</div>
+}
+}

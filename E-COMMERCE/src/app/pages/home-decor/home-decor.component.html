@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<!--HOMEPAGE DESKTOP VIEW-->
+
+@if(isMobileView){
+    <div class="w-screen h-[250px] entryReveal">
+        <img src="https://lh4.googleusercontent.com/bzueC7sQA153lZC-EJPlxIHLFC2xNM8--lU6Srv7xn1oIZUs52i9imIyXjKUWoYdnuh5D2LzL4HozWdfFMePeoR5utdBJf8eTbUw7ySFiJPZFwFZ7yjT4tokDBf8RgOFF9YIVvyJHqWlJAlq5-A" alt="" 
+        class="object-cover h-full w-full">
+    </div>
+
+    <div class="mt-8 mb-8 entryReveal">
+        <h3 class="text-center">New Collection</h3>
+        <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic, tempore?</p>
+    </div>
+
+    <div class="w-screen h-[250px] entryReveal">
+        <img src="https://cdn.prod.website-files.com/640b68693c13566914b5f6aa/65b00cec9c6a5856eeaff262_maine-living-room-64514e1bbf617.png" alt="" 
+        class="object-cover h-full w-full">
+    </div>
+
+   <div class="mt-8 mb-8 w-screen text-center entryReveal">
+    <h3>Old Money Decoration</h3>
+    <a href="#" class="underline">Order here</a>
+   </div>
+
+} @else {
+    <div class="w-[1200px] h-[500px] mx-auto mt-5 mb-[50px]">
+        <img src="https://lh4.googleusercontent.com/bzueC7sQA153lZC-EJPlxIHLFC2xNM8--lU6Srv7xn1oIZUs52i9imIyXjKUWoYdnuh5D2LzL4HozWdfFMePeoR5utdBJf8eTbUw7ySFiJPZFwFZ7yjT4tokDBf8RgOFF9YIVvyJHqWlJAlq5-A" alt=""
+        class="object-cover w-full h-full ">
+    </div>
+    <div class="h-[200px] text-8xl mt-[200px] mb-[200px] py-auto text-center" #textDecor>
+        <h1 class="">SOME HEADING TEXT</h1>
+    </div>
+
+    <div class="w-[100%] h-[500px] bg-amber-500 flex">
+        <div class="w-[50%] h-[490px] pt-3" #bnDecorOne>
+            <img src="https://www.luxurylifestylemag.co.uk/wp-content/uploads/2023/04/bigstock-Stylish-Modern-Interior-Idea-F-472733739.jpg" alt=""
+            class="object-cover w-full h-full">
+        </div>
+        <div class="w-[50%] my-auto" #bnDecorText>
+            <h1 class="text-center text-6xl mb-2">Some text heading</h1>
+            <p class="text-2xl text-center mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, inventore.</p>
+        </div>
+    </div>
+
+}
+
+<div class="bg-gray-900 text-white font-extralight ps-2 entryReveal mt-5">
+    <h3 class="text-center">Need help with something?</h3>
+    <ul>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Work with us</a> </li>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Contact us</a> </li>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Telephones : 22211-69</a> </li>
+        <li class="hover:text-gray-300 transition duration-500 text-center"> <a href="#">All right reserved to
+                ©Enterprise</a> </li>
+    </ul>
+</div>

@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+@if(isMobileView){
+  <div class="text-4xl text-center mt-2 mb-1">
+      <p class="font-light">Shopping Cart</p>
+  </div>
+  
+  <!-- Card Products -->
+    <div class="w-full">
+        @for (product of carItems; track $index) {
+            <app-product-cart-detail [productData]="product" (deleteProductEvent)="removeProductFromCart($event)"></app-product-cart-detail>
+          }
+    </div>
+  <!-- Total -->
+  <div class="mt-4 px-2">
+      <hr class="border-gray-300">
+      <div class="text-gray-800 text-sm space-y-1 mt-2">
+          <div class="flex justify-between">
+              <span>Price:</span>
+              <span>${{totalAmount}}</span>
+          </div>
+          <div class="flex justify-between">
+              <span>Taxes:</span>
+              <span>${{totalTax}}</span>
+          </div>
+          <div class="flex justify-between font-medium">
+              <span>Total:</span>
+              <span>${{total}}</span>
+          </div>
+      </div>
+      <div class="mt-3 w-full text-center">
+          <div class="bg-gray-500 text-white rounded-full py-2 px-6 cursor-pointer hover:bg-gray-600 transition duration-300">
+              <a href="#">Buy</a>
+          </div>
+      </div>
+  </div>
+  
+} @else {
+    <!--DESKTOP VIEW-->
+  <div class="text-4xl mt-3 ms-1 mb-4">
+      <p class="font-light text-center">Shopping Cart</p>
+  </div>
+  
+  <!-- Lista de productos -->
+  <div class="w-[70%] mx-auto h-[300px] overflow-y-auto">
+    @for (product of carItems; track $index) {
+      <app-product-cart-detail [productData]="product" (deleteProductEvent)="removeProductFromCart($event)"></app-product-cart-detail>
+    }
+  </div>
+  <!-- Total -->
+  <div class="mt-1 px-4 w-[70%] mx-auto">
+      <div class="space-y-2 text-gray-800 text-base">
+          <hr class="border-gray-300">
+          <div class="flex justify-between">
+              <span>Price:</span>
+              <span>{{ totalAmount }}</span>
+          </div>
+          <div class="flex justify-between">
+              <span>Taxes:</span>
+              <span>{{ totalTax }}</span>
+          </div>
+          <div class="flex justify-between font-medium text-gray-900">
+              <span>Total:</span>
+              <span>{{ total }}</span>
+          </div>
+      </div>
+  
+      <!-- Botón Confirmar Compra -->
+      <div class="mt-4 text-center">
+          <div class="bg-gray-500 w-[150px] mx-auto py-2 rounded-full text-white text-lg cursor-pointer hover:bg-gray-600 transition duration-300">
+              <a (click)="showProductList()">Buy it!</a>
+          </div>
+      </div>
+  </div>
+  
+}

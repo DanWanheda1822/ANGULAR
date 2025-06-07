@@ -1,0 +1,34 @@
+<div class="md:flex bg-white shadow md:h-[60px] py-2 border-[#F9FAFB]">
+    <nav class="flex xs:flex-col md:flex-row justify-between items-center">
+
+        <div class="ms-2">
+            <a href="/" class="text-lg font-bold text-gray-800 hover:text-[#d6cf6e] transition duration-300">Tailwind</a>
+        </div>
+
+        <!-- Botón de menú en dispositivos pequeños -->
+        @if(!isMdOrLarger){
+        <div class="flex me-5">
+            <button (click)="collapseButton()" class="md:hidden">
+                <i class="fa-solid fa-bars text-gray-800 hover:text-[#d6cf6e] transition duration-300"></i>
+            </button>
+        </div>
+        }
+    </nav>
+
+    <!-- Menú colapsable -->
+    @if(collapse || isMdOrLarger) {
+    <div class="flex md:flex-row md:mx-auto sm:pb-1 rounded-md md:mt-1">
+        <ul class="flex flex-col md:flex-row md:gap-4 md:me-4 ">
+            <li>
+                <a href="/shop" class="block text-gray-800 hover:text-[#d6cf6e] transition duration-300 py-1 px-2 rounded-md">Clothing</a>
+            </li>
+            <li>
+                <a href="/homeDecor" class="block text-gray-800 hover:text-[#d6cf6e] transition duration-300 py-1 px-2 rounded-md">Home Decor</a>
+            </li>
+            <li>
+                <a href="/login" class="block text-gray-800 hover:text-[#d6cf6e] transition duration-300 py-1 px-2 rounded-md">Login</a>
+            </li>
+        </ul>
+    </div>
+    }
+</div>

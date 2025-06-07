@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<!--RENDERING MOBILE VIEW-->
+
+@if(isMobileScreen){
+<div class="animateFadeIn">
+    <div class="relative inline-block mt-5">
+        <img class="w-screen h-auto" alt="Re-Nylon Collection for Her"
+            src="https://www.prada.com/content/dam/pradanux/e-commerce/2025/02/Re-Nylon/Landing/Mosaic/1/Mosaic_landscape_DT.jpg"
+            loading="lazy">
+        <div class="absolute inset-0 inset-x-[5px] justify-end text-white">My collection</div>
+        <a href="#" class="absolute inset-x-[5px] inset-y-[20px] underline text-white">Shop</a>
+    </div>
+
+    <div class="">
+        <h2 class="text-center">Shop Available!</h2>
+        <p class="w-[260px] mx-auto text-center font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Vitae, dolores.</p>
+    </div>
+
+    <div class="relative mt-5 mb-2">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/edc050124dray-004-662812856f55c.jpg?crop=1xw:1xh;center,top&resize=980:*"
+            alt="">
+    </div>
+    <div class="">
+        <h2 class="text-center mt-2 mb-2 underline"><a href="#">Home decor collection</a></h2>
+        <p class="text-center font-extralight">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, cum!</p>
+    </div>
+
+    <div class="relative mb-2">
+        <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Library-Sites-DiorSharedLibrary/default/dw5339d5a4/images/beauty/01-FRAGRANCES/2024/SAUVAGE-EAU-FORTE/PLP/A24F094_SAUVAGE_EAU_FORTE_Mood_Gamme-Mencare_3700x2000.jpg?sw=1280"
+            alt="" class="mt-5 w-full h-auto">
+        <div class="absolute inset-x-0 bottom-0 text-center text-white bg-opacity-50 py-4">
+            Dior Sauve Elixir
+            <br>
+            <a href="#" class="font-extralight underline">Order here</a>
+        </div>
+    </div>
+</div>
+
+}
+<!--RENDERING DESKTOP AND TABLETS VIEW-->
+@else {
+
+    <div class="relative w-[1200px] h-[500px] overflow-hidden mx-auto my-5 text-white bannerOne" #bannerOne>
+        <img src="https://www.prada.com/content/dam/pradanux/e-commerce/2025/02/Re-Nylon/Landing/Mosaic/1/Mosaic_landscape_DT.jpg"
+            alt="Prada" class="object-cover w-full h-full">
+            <div class="absolute inset-y-110 inset-x-0 flex justify-center items-center">
+                <a href="#" class="underline">New Collection</a>
+            </div>
+    </div>
+    
+    <div class="relative w-[1200px] h-[500px] overflow-hidden mx-auto my-5 text-white fade-in bannerTwo" #bannerTwo>
+        <img src="https://www.prada.com/content/dam/pradanux/e-commerce/2025/02/Re-Nylon/Landing/Mosaic/2/Mosaic_landscape_DT.jpg"
+            alt="Prada" class="object-cover w-full h-full">
+            <div class="absolute inset-y-110 inset-x-0 flex justify-center items-center">
+                <a href="#" class="underline">New Collection 2</a>
+            </div>
+    </div>
+    <div class="flex mx-auto w-[1200px] h-[500px] mt-[50px] mb-[20px] fade-in" #bannerThree>
+        <div class="flex w-[725px] h-[480px] object-cover">
+            <img src="https://assets.armani.com/image/upload/f_auto,q_auto,ar_4:5,w_1638,c_lfill/SS25_EA_DIGITAL_PROD_CATALOGO_SL_M_04_1080_x_1350" alt="" class="object-cover w-full h-full">
+        </div>
+        <div class="text-center justify-center place-content-center ps-[-30px]  h-[500px] font-extralight" #bannerFour>
+            <h1 class="place-content-center underline"><b> <a href="#">New HandBag Collection</a> </b></h1>
+            <p class="place-content-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, eveniet!</p>
+        </div>
+    </div>
+}
+
+<!--RENDER THE FINAL LIST OF OPTIONS-->
+<div class="bg-gray-900 text-white font-extralight ps-2">
+    <h3 class="text-center">Need help with something?</h3>
+    <ul>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Work with us</a> </li>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Contact us</a> </li>
+        <li class="hover:text-gray-300 transition duration-500"> <a href="#">Telephones : 22211-69</a> </li>
+        <li class="hover:text-gray-300 transition duration-500 text-center"> <a href="#">All right reserved to
+                ©Enterprise</a> </li>
+    </ul>
+</div>

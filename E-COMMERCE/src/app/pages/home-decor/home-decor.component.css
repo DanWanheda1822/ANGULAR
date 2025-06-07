@@ -1,0 +1,16 @@
+@keyframes entry{
+    0%{
+        opacity: 0;
+    } 100%{
+        opacity: 1;
+    }
+}
+
+.entryReveal{
+    animation-name: entry;
+    animation-duration: 1s;
+}
+
+#textDecor{
+    opacity : 0;
+}

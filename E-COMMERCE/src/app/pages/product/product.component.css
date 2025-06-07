@@ -1,0 +1,17 @@
+.btnMinus{
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.btnPlus{
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.amountProd{
+    border: 0px;
+}
+
+button{
+    border:0px
+}
