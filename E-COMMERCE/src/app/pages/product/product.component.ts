@@ -37,7 +37,6 @@ export class ProductComponent {
   };
   @Output() productCart = new EventEmitter<Product>();
   
-
   constructor(private router: Router, private cartService : CartService, private route: ActivatedRoute, private productService : ProductService){
     this.checkScreenSize();
     const nav = this.router.getCurrentNavigation();
@@ -49,6 +48,7 @@ export class ProductComponent {
     }
     this.getProductInfo();
   }
+
 
   ngOnInit(): void {
     this.checkScreenSize();

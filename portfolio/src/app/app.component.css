@@ -1,0 +1,133 @@
+#softwareDeveloper{
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  opacity:0;
+  animation: tittleFront;
+  animation-delay: 1.2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.iconsHeader{
+    opacity: 0;
+    animation: tittleFront;
+    animation-delay: 1.2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#tittleName{
+  font-family: "Poppins", sans-serif;
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
+}
+
+#aboutMe{
+    font-family: "Poppins", sans-serif;
+    opacity: 0;
+    animation-name: tittleFront;
+    animation-duration: 2s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards
+}
+
+#technologies{
+    font-family: "Poppins", sans-serif;
+}
+
+#projects{
+    font-family: "Poppins", sans-serif;
+}
+
+#contactMe{
+    font-family: "Poppins", sans-serif;
+}
+
+.textInfo{
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  opacity: 0;
+  animation-name: tittleFront;
+  animation-duration: 2s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.iconsTech{
+    view-timeline-name: --techs;
+    view-timeline-axis: block;
+    animation-timeline: --techs;
+    animation-name: showTech;
+    animation-duration: 1.5s;
+}
+
+.group{
+    animation-name:showCardProjects;
+    view-timeline-name: --cardProjects;
+    view-timeline-axis: block;
+    opacity: 0;
+    animation-timeline: --cardProjects;
+    animation-duration: 2s;
+    animation-range: entry 60% cover 50%;
+    animation-fill-mode: forwards;
+}
+
+.navbar{
+    opacity: 0;
+    animation: tittleFront;
+    animation-duration: 2s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+#navbar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* ANIMATIONS */
+
+@keyframes tittleFront {
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes showTech{
+    0%{
+        opacity: 0;
+        scale: 25%
+    }50%{
+        opacity: 1;
+        scale: 90%
+    }
+     100%{
+        opacity: 1;
+        scale: 100%
+    }
+}
+
+@keyframes showCardProjects{
+    0%{
+        opacity: 0;
+        scale: 0.9;
+    }100%{
+        opacity: 1;
+        scale: 1;
+    }
+}

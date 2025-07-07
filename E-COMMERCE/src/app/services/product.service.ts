@@ -18,6 +18,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  public getProductById(id: number){
+    return this.http.get<Response<Product>>(
+      this.findProductId + `?idProduct=${id}`
+    );
+  }
+
   public productsInit(pageNumber: number): Observable<Response<Product[]>> {
     return this.http.get<Response<Product[]>>(
       this.allProductsURL + `?pageNumber=${pageNumber}&maxProducts=8`
@@ -39,12 +45,6 @@ export class ProductService {
   public getProductsCategory(category: string, pageNumber : number){
     return this.http.get<Response<Product[]>>(
       this.productsCategory + `=${category}&pageNumber=${pageNumber}&maxProducts=8`
-    );
-  }
-
-  public getProductById(id: number){
-    return this.http.get<Response<Product>>(
-      this.findProductId + `?idProduct=${id}`
     );
   }
 }
